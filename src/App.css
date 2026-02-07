@@ -1,0 +1,110 @@
+* { box-sizing: border-box; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; }
+body { margin: 0; }
+.page{
+  min-height: 100vh;
+  width: 100vw;
+  display: grid;
+  place-items: center;      /* perfect center */
+  padding: 18px;
+  background: radial-gradient(circle at top, #ffe0ef, #fff);
+  overflow: hidden;
+}
+
+.card{
+  width: min(560px, 92vw);
+  margin: 0 auto; 
+  color: #ff2f6d;
+            /* extra safety */
+}
+
+h1{ margin: 0 0 10px; font-size: 28px; }
+p{ margin: 0 0 14px; color: #444; }
+
+.playArea{
+  position: relative;
+  width: 100%;
+  height: 140px;             /* default */
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  margin-top: 14px;
+  border: 1px dashed rgba(255,47,109,.25);
+  background: rgba(255,255,255,.5);
+}
+
+.btn{
+  border: 0;
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform .08s ease;
+}
+.btn:active{ transform: scale(.98); }
+
+.yes{ background: #ff2f6d; color: #fff; }
+
+.no{
+  background: #111;
+  color: #fff;
+  position: absolute;
+  transition: left 0.12s ease-out, top 0.12s ease-out;
+  will-change: left, top;
+}
+
+.hint{ font-size: 12px; opacity: .7; margin-top: 12px; color: #000;}
+
+.result{
+  margin-top: 16px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #ff2f6d;
+}
+.result .sub{ font-weight: 600; color: #333; }
+
+/* Hearts */
+.heart{
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  transform: rotate(45deg);
+  background: #ff2f6d;
+  opacity: .85;
+  animation: floatUp 2.4s linear forwards;
+  pointer-events: none;
+}
+.heart::before, .heart::after{
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #ff2f6d;
+}
+.heart::before{ left: -7px; top: 0; }
+.heart::after{ top: -7px; left: 0; }
+
+@keyframes floatUp{
+  0%{ transform: translateY(0) rotate(45deg); opacity: .9; }
+  100%{ transform: translateY(-220px) rotate(45deg); opacity: 0; }
+}
+
+/* Mobile */
+@media (max-width: 480px){
+  .card{ padding: 18px; }
+  h1{ font-size: 22px; }
+  .btn{ padding: 10px 14px; font-size: 15px; border-radius: 11px; }
+  .playArea{ height: 160px; }
+}
+
+/* Tablet */
+@media (min-width: 481px) and (max-width: 900px){
+  .card{ max-width: 620px; }
+  .playArea{ height: 170px; }
+}
+
+/* Desktop Wide */
+@media (min-width: 901px){
+  .card{ max-width: 640px; }
+  .playArea{ height: 160px; }
+}
