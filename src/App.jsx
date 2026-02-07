@@ -140,12 +140,12 @@ export default function App() {
           </button>
         </div>
 
-        {showResult && (
-          <div className="result">
-            Yayyy! I knew it Buglaaa 🪿🪿 😍💘 <br />
-          
-          </div>
-        )}
+       {showResult && (
+  <div className="result">
+    हमें पहले से ही पता था कि आपका जवाब यही होगा 😍💘 <br />
+    Love you बहुत सारा ❤️
+  </div>
+)}
 
        
       </div>
